@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #4a8bdf;
+  --backGround-color: #effafd;
+  --tertiary-color: #a0006d;
+  --fourth-color: #123c69;
+  --fifth-color: #ac3b61;
+}
+
+.nav-container {
+  margin: 1rem;
+  color: #4a8bdf;
+  text-align: start;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  border-bottom: solid #4a8bdf;
+}
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.NavLink {
+  text-decoration: none;
+  color: #4a8bdf;
+}
+
+footer {
+  border-top: solid #4a8bdf;
+  margin: 2rem;
+}
+.footer-item {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+a {
+  text-decoration: none;
+}
