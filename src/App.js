@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+
 import "./App.css";
-import axios from "axios";
+
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./page/Home/Home";
 import { Products } from "./page/Product/Product";
@@ -9,20 +10,25 @@ import { Wishlist } from "./page/Wishlist/Wishlist";
 import { ProductDetails } from "./page/ProductDetails/ProductDetails";
 import { Navigation } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { getData } from "./Resource/apicall/Data";
 
 function App() {
-  const getProducts = async () => {
-    try {
-      const response = await axios.get("/api/products");
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // const getProducts = async () => {
+  //   try {
+  //     const response = await axios.get("/api/products");
+  //     console.log(response);
+  //     const productData = response;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   useEffect(() => {
-    getProducts();
+    getData();
   }, []);
+
+  // useEffect(() => {
+  //   getProducts();
+  // }, []);
 
   return (
     <div className="App">
