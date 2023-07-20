@@ -14,10 +14,10 @@ const DataBaseProvider = ({ children }) => {
       const response2 = await axios.get("/api/categories");
       setCategoriesData(response2.data.categories);
 
-      console.log("1", dataBase, response.data.products);
-      console.log("2", categoriesData, response2.data.categories);
+      // console.log("1", dataBase, response.data.products);
+      // console.log("2", categoriesData, response2.data.categories);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
   useEffect(() => gettingData(), []);

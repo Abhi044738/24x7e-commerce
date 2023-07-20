@@ -1,4 +1,12 @@
 /* ---home */
+.home-page-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
 .container-home {
   gap: 25px;
   margin: 5rem;
@@ -13,7 +21,7 @@
   height: 500px;
   display: flex;
   justify-content: center;
-  background-image: url("../Resource/image/image.png");
+  background-image: url("../image/image.png");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -78,11 +86,9 @@ section {
   min-height: 250px;
   display: flex;
   justify-content: space-evenly;
+  /* height: fit-content; */
 }
 
-.member {
-  border: solid;
-}
 .check-out {
   border-left: solid #4a8bdf;
   display: flex;

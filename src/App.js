@@ -12,7 +12,13 @@ import { Navigation } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { getData } from "./Resource/apicall/Data";
 
+import { useAuthenticationContext } from "./context/AuthenticationContext";
+import { LoginPage } from "./page/loginpage/sinup";
+import { LogInSignUnPage } from "./page/loginpage/logInSignUnPage";
+
 function App() {
+  const { Login, RequiredAuth } = useAuthenticationContext();
+  // const login = false;
   // const getProducts = async () => {
   //   try {
   //     const response = await axios.get("/api/products");
@@ -36,9 +42,25 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route
+          path="/cart"
+          element={
+            <RequiredAuth>
+              <Cart />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequiredAuth>
+              <Wishlist />
+            </RequiredAuth>
+          }
+        />
         <Route path="/productsDetails" element={<ProductDetails />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/LogInSignUnPage" element={<LogInSignUnPage />} />
       </Routes>
       <Footer />
     </div>

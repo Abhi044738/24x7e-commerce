@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useCartWishlistContext } from "../../context/context";
 import { useDataBase } from "../../context/dataBaseContext";
 import "../Home.css";
-import { Add, displayMoveButton } from "../../function/function";
+import { Add, ProvideImage, displayMoveButton } from "../../function/function";
 import { FilterBar } from "../../components/filterBar";
+// import  hell from "../../image/.png";
 
 export const Products = () => {
   const { dataBase } = useDataBase();
@@ -11,6 +12,7 @@ export const Products = () => {
   // console.log("kkkk", Cart);
   // console.log("2", dataBase);
   const navigate = useNavigate();
+
   return (
     <div className="layout">
       <FilterBar />
@@ -18,7 +20,8 @@ export const Products = () => {
         {(dataBase ?? []).map(({ title, author, price, _id, display }) =>
           display === true ? (
             <div className="product-item">
-              <img src="/Resource/image/1984.png" alt="" />
+              {/* <img src={"../../image/.png"} alt="" /> */}
+              <ProvideImage title={title} userheight={"6.5rem"} />
               <h3>{title}</h3>
               <p>{author}</p>
               <p>Rs. {price}</p>

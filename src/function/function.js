@@ -37,4 +37,13 @@ const toRemove = (id, Cart, setCart) => {
   );
   setCart(newCart);
 };
-export { Add, displayMoveButton, toAdd, toRemove };
+
+////product cart image provider
+const ProvideImage = ({ title, userheight }) => {
+  console.log(title, userheight);
+  const imageTitle = title.replace(/\s/g, "-");
+  const myImage = require(`../image/${imageTitle}.png`);
+  console.log(imageTitle, `../image/${imageTitle}.png`);
+  return <img src={myImage} style={{ height: userheight }} />;
+};
+export { Add, displayMoveButton, toAdd, toRemove, ProvideImage };

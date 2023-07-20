@@ -18,18 +18,18 @@ export const products = [
   {
     _id: uuidv4(),
     display: true,
-    title: "",
-    author: "",
+    title: "The Haunting of Hill House",
+    author: "Shirley Jackson",
     price: "3000",
     categoryName: "horror",
   },
   {
     _id: uuidv4(),
     display: true,
-    title: "",
-    author: "",
+    title: "The Alchemist",
+    author: "Paulo Coelho",
     price: "1000",
-    categoryName: "fiction",
+    categoryName: "Philosophy",
   },
 
   {
@@ -107,8 +107,8 @@ export const products = [
   {
     _id: uuidv4(),
     display: true,
-    title: "",
-    author: "",
+    title: "The Picture of Dorian Gray",
+    author: "Oscar Wilde",
     price: "8721",
     categoryName: "Fiction",
   },

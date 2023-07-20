@@ -1,5 +1,5 @@
 import { useCartWishlistContext } from "../../context/context";
-import { toAdd, toRemove } from "../../function/function";
+import { ProvideImage, toAdd, toRemove } from "../../function/function";
 import "../Home.css";
 export const Cart = () => {
   const { Cart, setCart } = useCartWishlistContext();
@@ -11,10 +11,10 @@ export const Cart = () => {
         <div className="cards ">
           {Cart.map(({ _id, author, title, price, categoryName, count }) => (
             <div className="cart ">
-              <div className="member">
-                <img src="" alt="" />
+              <div>
+                <ProvideImage title={title} userheight={"fit-content"} />
               </div>
-              <div className="member">
+              <div>
                 <h3>{title}</h3>
                 <p>by {author}</p>
                 <p>

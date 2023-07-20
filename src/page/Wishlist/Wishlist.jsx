@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useCartWishlistContext } from "../../context/context";
 import { useDataBase } from "../../context/dataBaseContext";
-import { Add, toRemove } from "../../function/function";
+import { Add, ProvideImage, toRemove } from "../../function/function";
 import "../Home.css";
 
 export const Wishlist = () => {
@@ -12,10 +12,10 @@ export const Wishlist = () => {
     <div className="wishlist">
       {WishList.map(({ title, author, price, _id }) => (
         <div className="cart">
-          <div className="member">
-            <img src="" alt="" />
+          <div>
+            <ProvideImage title={title} userheight={"fit-content"} />
           </div>
-          <div className="member">
+          <div>
             <h3>{title}</h3>
             <p>by {author}</p>
             <p>{price}</p>
