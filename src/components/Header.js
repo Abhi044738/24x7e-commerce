@@ -1,16 +1,16 @@
-import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import { useCartWishlistContext } from "../context/context";
 import { SearchBar } from "./searchBar";
 import { useAuthenticationContext } from "../context/AuthenticationContext";
-import { LogInSignUnPage } from "../page/loginpage/logInSignUnPage";
+// import { LogInSignUnPage } from "../page/loginpage/logInSignUnPage";
 
 export const Navigation = () => {
   const { Cart, WishList } = useCartWishlistContext();
   // console.log("asf", Cart.length, Wishlist.length);
   const { Login, setLogin } = useAuthenticationContext();
-  const navigate = useNavigate();
-  const Location = useLocation();
+  // const navigate = useNavigate();
+  // const Location = useLocation();
   // const handleSingup = () => {
   //   setLogin(!Login);
   //   if (Login === true) {

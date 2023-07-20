@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
@@ -10,14 +8,13 @@ import { Wishlist } from "./page/Wishlist/Wishlist";
 import { ProductDetails } from "./page/ProductDetails/ProductDetails";
 import { Navigation } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { getData } from "./Resource/apicall/Data";
 
 import { useAuthenticationContext } from "./context/AuthenticationContext";
 import { LoginPage } from "./page/loginpage/sinup";
 import { LogInSignUnPage } from "./page/loginpage/logInSignUnPage";
 
 function App() {
-  const { Login, RequiredAuth } = useAuthenticationContext();
+  const { RequiredAuth } = useAuthenticationContext();
   // const login = false;
   // const getProducts = async () => {
   //   try {
@@ -28,9 +25,6 @@ function App() {
   //     console.log(error);
   //   }
   // };
-  useEffect(() => {
-    getData();
-  }, []);
 
   // useEffect(() => {
   //   getProducts();

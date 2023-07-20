@@ -1,4 +1,3 @@
-import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthenticationContext } from "../../context/AuthenticationContext";
 
 export const LogInSignUnPage = () => {

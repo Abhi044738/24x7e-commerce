@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useCartWishlistContext } from "../../context/context";
 import { useDataBase } from "../../context/dataBaseContext";
 import { Add, ProvideImage, toRemove } from "../../function/function";
