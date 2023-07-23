@@ -1,22 +1,21 @@
 import "../Home.css";
 import a from "../../image/a.png";
-import { useDataBase } from "../../context/dataBaseContext";
+import { useProduct } from "../../context/productContext";
 import { Add, ProvideImage, displayMoveButton } from "../../function/function";
 import { useCartWishlistContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
-  const { categoriesData, dataBase } = useDataBase();
+  const { categoriesData, product } = useProduct();
   const { Cart, setCart, WishList, setWishList } = useCartWishlistContext();
   const navigate = useNavigate();
   console.log(
     "jdfsssss;sfdddddd",
     categoriesData.map((item) =>
-      dataBase.filter(({ categoryName }) => categoryName === item.categoryName)
+      product.filter(({ categoryName }) => categoryName === item.categoryName)
     )
   );
 
-  // console.log("fhhh", categoriesData);
   return (
     <div className="container-home">
       <img src={a} alt="" style={{ maxHeight: "40rem" }} />
@@ -27,13 +26,12 @@ export const Home = () => {
             <p>{item.description}</p>
             <div className="home-page-item">
               {(
-                dataBase.filter(
+                product.filter(
                   ({ categoryName }) => categoryName === item.categoryName
                 ) ?? []
               ).map(({ title, author, price, _id, display }) =>
                 display === true ? (
                   <div className="product-item ">
-                    {/* <img src={"../../image/.png"} alt="" /> */}
                     <ProvideImage title={title} userheight={"6.5rem"} />
                     <h3>{title}</h3>
                     <p>{author}</p>
@@ -43,7 +41,7 @@ export const Home = () => {
                     ) : (
                       <>
                         <button
-                          onClick={() => Add(_id, Cart, setCart, dataBase)}
+                          onClick={() => Add(_id, Cart, setCart, product)}
                         >
                           Add to cart
                         </button>
@@ -54,7 +52,7 @@ export const Home = () => {
                         ) : (
                           <button
                             onClick={() =>
-                              Add(_id, WishList, setWishList, dataBase)
+                              Add(_id, WishList, setWishList, product)
                             }
                           >
                             Add to Wishlist

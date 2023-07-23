@@ -1,10 +1,10 @@
 import { useCartWishlistContext } from "../../context/context";
-import { useDataBase } from "../../context/dataBaseContext";
+import { useProduct } from "../../context/productContext";
 import { Add, ProvideImage, toRemove } from "../../function/function";
 import "../Home.css";
 
 export const Wishlist = () => {
-  const { dataBase } = useDataBase();
+  const { product } = useProduct();
   const { WishList, Cart, setCart, setWishList } = useCartWishlistContext();
 
   return (
@@ -19,26 +19,12 @@ export const Wishlist = () => {
             <p>by {author}</p>
             <p>{price}</p>
             {!Cart.find((item) => item._id === _id) ? (
-              <button onClick={() => Add(_id, Cart, setCart, dataBase)}>
+              <button onClick={() => Add(_id, Cart, setCart, product)}>
                 Add to cart
               </button>
             ) : (
               <></>
             )}
-            {/* <button
-              onClick={() =>
-                wishlistToCart(
-                  _id,
-                  Cart,
-                  WishList,
-                  setCart,
-                  setWishList,
-                  dataBase
-                )
-              }
-            >
-              Add to cart
-            </button> */}
             <button onClick={() => toRemove(_id, WishList, setWishList)}>
               Remove From Wishlist
             </button>

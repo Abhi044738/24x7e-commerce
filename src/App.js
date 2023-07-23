@@ -9,12 +9,11 @@ import { ProductDetails } from "./page/ProductDetails/ProductDetails";
 import { Navigation } from "./components/Header";
 import { Footer } from "./components/Footer";
 
-import { useAuthenticationContext } from "./context/AuthenticationContext";
-import { LoginPage } from "./page/loginpage/sinup";
 import { LogInSignUnPage } from "./page/loginpage/logInSignUnPage";
-
+import { LogInPage } from "./page/loginpage/logInPage";
+import { SignUpPage } from "./page/loginpage/signUpPage";
+import { RequiresAuth } from "./RequiresAuth";
 function App() {
-  const { RequiredAuth } = useAuthenticationContext();
   // const login = false;
   // const getProducts = async () => {
   //   try {
@@ -39,22 +38,23 @@ function App() {
         <Route
           path="/cart"
           element={
-            <RequiredAuth>
+            <RequiresAuth>
               <Cart />
-            </RequiredAuth>
+            </RequiresAuth>
           }
         />
         <Route
           path="/wishlist"
           element={
-            <RequiredAuth>
+            <RequiresAuth>
               <Wishlist />
-            </RequiredAuth>
+            </RequiresAuth>
           }
         />
         <Route path="/productsDetails" element={<ProductDetails />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/LogInSignUnPage" element={<LogInSignUnPage />} />
+        <Route path="/LogInSignUnPage" element={<LogInSignUnPage />} /> */}
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/signUpPage" element={<SignUpPage />} />
       </Routes>
       <Footer />
     </div>

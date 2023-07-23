@@ -4,18 +4,10 @@ import { Navigate, useLocation } from "react-router-dom";
 const AuthenticationContext = createContext(null);
 
 const AuthenticationProvider = ({ children }) => {
-  const [Login, setLogin] = useState(false);
-  const RequiredAuth = ({ children }) => {
-    const Location = useLocation();
+  const [token, setToken] = useState("");
 
-    return Login ? (
-      children
-    ) : (
-      <Navigate to="/login" state={{ from: Location.pathname }} />
-    );
-  };
   return (
-    <AuthenticationContext.Provider value={{ Login, setLogin, RequiredAuth }}>
+    <AuthenticationContext.Provider value={{ token, setToken }}>
       {children}
     </AuthenticationContext.Provider>
   );

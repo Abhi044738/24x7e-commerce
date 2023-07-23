@@ -1,0 +1,9 @@
+.buttonContainer {
+  min-width: "30%";
+  padding: "10%";
+  background-color: "white";
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "center";
+  gap: "5%";
+}

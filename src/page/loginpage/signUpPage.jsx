@@ -1,35 +1,47 @@
-import { useNavigate } from "react-router-dom";
-
+import { useAuthenticationContext } from "../../context/AuthenticationContext";
 import { ProvideImage } from "../../function/function";
 const buttonContainer = {
   minWidth: "30%",
-  padding: "10%",
+  padding: "2%",
   backgroundColor: "white",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
-  gap: "5%",
+  justifyContent: "space-between",
+  gap: "3%",
 };
+const LogSignPage = ({ setState }) => {
+  const { Login, setLogin } = useAuthenticationContext();
+  const handleClick = () => {
+    setLogin(!Login);
+  };
 
-const LogSignPage = () => {
-  const navigate = useNavigate();
-  const handleLogin = () => navigate("/logInPage");
-  const handleSignUP = () => navigate("/signUpPage");
   return (
     <div style={buttonContainer}>
       <h1>Bookworm's Paradise!!!</h1>
       <p>Welcome to Bookworm's Paradise!!!</p>
-      <button onClick={handleLogin}>
-        <h3>Login with google</h3>
-      </button>
-      <button onClick={handleSignUP}>
-        <h3>SignUp with google</h3>
+      <label>
+        UserName
+        <br />
+        <input type="words" />
+      </label>
+      <label>
+        Enter Email
+        <br />
+        <input type="words" />
+      </label>
+      <label>
+        Enter password
+        <br />
+        <input type="password" />
+      </label>
+      <button onClick={handleClick}>
+        <h3>SignUp </h3>
       </button>
     </div>
   );
 };
 
-export const LogInSignUnPage = () => {
+export const SignUpPage = () => {
   return (
     <div
       style={{

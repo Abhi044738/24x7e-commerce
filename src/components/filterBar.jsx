@@ -1,11 +1,11 @@
-import { useDataBase } from "../context/dataBaseContext";
+import { useState } from "react";
+import { useProduct } from "../context/productContext";
 export const FilterBar = () => {
-  const { dataBase, setDataBase, categoriesData } = useDataBase();
-  //   console.log(5, dataBase, categoriesData);
+  const { product, setProduct, categoriesData } = useProduct();
 
   const filterHandler = (event) => {
     /////filtercategories
-    const newproduct = dataBase.reduce(
+    const newproduct = product.reduce(
       (acc, curr) =>
         event.target.value === "All"
           ? [...acc, { ...curr, display: true }]
@@ -15,12 +15,12 @@ export const FilterBar = () => {
       []
     );
     console.log("here", newproduct);
-    setDataBase(newproduct);
+    setProduct(newproduct);
   };
   /////filter price
   const filterPrice = (event) => {
     console.log(event.target.value);
-    const newproduct = dataBase.reduce(
+    const newproduct = product.reduce(
       (acc, curr) =>
         event.target.value >= curr.price
           ? [...acc, { ...curr, display: true }]
@@ -28,15 +28,102 @@ export const FilterBar = () => {
       []
     );
     // console.log(newproduct);
-    setDataBase(newproduct);
+    setProduct(newproduct);
   };
+  /////////////////////////////
+  const [categorySelected, setCategorySelected] = useState("All");
+  const [priceSelected, setPriceSelected] = useState(9999999);
+  const filterPrice1 = () => {
+    console.log();
+    const newproduct = product.reduce(
+      (acc, curr) =>
+        priceSelected >= curr.price
+          ? [...acc, { ...curr, display: true }]
+          : [...acc, { ...curr, display: false }],
+      []
+    );
+    console.log(newproduct);
+    console.log(
+      "kjkjk",
+      product.reduce(
+        (acc, curr) =>
+          newproduct.find(
+            (item) => item.price === curr.price && item.display === true
+          )
+            ? [...acc, { ...curr, display: true }]
+            : [...acc, { ...curr, display: false }],
+        []
+      )
+    );
+    return newproduct;
+  };
+  const filtercategories2 = () => {
+    const newproduct = product.reduce(
+      (acc, curr) =>
+        categorySelected === "All"
+          ? [...acc, { ...curr, display: true }]
+          : categorySelected.toLowerCase() !== curr.categoryName.toLowerCase()
+          ? [...acc, { ...curr, display: false }]
+          : [...acc, { ...curr, display: true }],
+      []
+    );
+    console.log("here", newproduct);
+    console.log(
+      "hjhjh",
+      product.reduce(
+        (acc, curr) =>
+          newproduct.find(
+            (item) =>
+              item.categoryName === curr.categoryName && item.display === true
+          )
+            ? [...acc, { ...curr, display: true }]
+            : [...acc, { ...curr, display: false }],
+        []
+      )
+    );
+    return newproduct;
+  };
+  ////////////////////////////
 
+  const handleCategorySelected = (event) => {
+    setCategorySelected(event.target.value);
+
+    console.log("hey", categorySelected, priceSelected);
+  };
+  const handlePriceSelected = (event) => {
+    setPriceSelected(event.target.value);
+
+    console.log("hey", categorySelected, priceSelected);
+  };
+  const handleFilter = () => {
+    const priceArray = filterPrice1();
+    const categoryArray = filtercategories2();
+    const newProductArray = product.reduce(
+      (acc, curr) =>
+        categoryArray.find(
+          (item) =>
+            item.categoryName === curr.categoryName && item.display === true
+        ) &&
+        priceArray.find(
+          (item2) => item2.price === curr.price && item2.display === true
+        )
+          ? [...acc, { ...curr, display: true }]
+          : [...acc, { ...curr, display: false }],
+      []
+    );
+    console.log("oye", newProductArray);
+    setProduct(newProductArray);
+  };
+  /////////////////////////////////////////
   return (
     <div className="items filters">
       <h3 className="filter-item">
         <label>
           categories
-          <select onChange={filterHandler}>
+          <select
+            //  onChange={filterHandler}
+            onChange={handleCategorySelected}
+          >
             <option value={"All"}>All</option>
             {categoriesData.map((item) => (
               <option value={item.categoryName}>{item.categoryName}</option>
@@ -50,7 +137,8 @@ export const FilterBar = () => {
         <div className="filter-item filters">
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={1000}
@@ -59,7 +147,8 @@ export const FilterBar = () => {
           </label>
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={2000}
@@ -68,7 +157,8 @@ export const FilterBar = () => {
           </label>
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={3000}
@@ -77,7 +167,8 @@ export const FilterBar = () => {
           </label>
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={3500}
@@ -86,7 +177,8 @@ export const FilterBar = () => {
           </label>
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={4000}
@@ -95,13 +187,18 @@ export const FilterBar = () => {
           </label>
           <label>
             <input
-              onClick={filterPrice}
+              // onClick={filterPrice}
+              onClick={handlePriceSelected}
               type="radio"
               name="filter"
               value={999999999}
             />
             More then 4000
           </label>
+          <br />
+          <button onClick={handleFilter}>
+            <h3>Filter</h3>
+          </button>
         </div>
       </div>
     </div>

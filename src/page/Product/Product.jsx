@@ -1,26 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useCartWishlistContext } from "../../context/context";
-import { useDataBase } from "../../context/dataBaseContext";
+import { useProduct } from "../../context/productContext";
 import "../Home.css";
 import { Add, ProvideImage, displayMoveButton } from "../../function/function";
 import { FilterBar } from "../../components/filterBar";
 // import  hell from "../../image/.png";
 
 export const Products = () => {
-  const { dataBase } = useDataBase();
+  const { product } = useProduct();
   const { Cart, setCart, WishList, setWishList } = useCartWishlistContext();
-  // console.log("kkkk", Cart);
-  // console.log("2", dataBase);
   const navigate = useNavigate();
 
   return (
     <div className="layout">
       <FilterBar />
       <div className="items product-content ">
-        {(dataBase ?? []).map(({ title, author, price, _id, display }) =>
+        {(product ?? []).map(({ title, author, price, _id, display }) =>
           display === true ? (
             <div className="product-item">
-              {/* <img src={"../../image/.png"} alt="" /> */}
               <ProvideImage title={title} userheight={"6.5rem"} />
               <h3>{title}</h3>
               <p>{author}</p>
@@ -29,7 +26,7 @@ export const Products = () => {
                 <button onClick={() => navigate("/cart")}>To cart</button>
               ) : (
                 <>
-                  <button onClick={() => Add(_id, Cart, setCart, dataBase)}>
+                  <button onClick={() => Add(_id, Cart, setCart, product)}>
                     Add to cart
                   </button>
                   {displayMoveButton(_id, WishList) ? (
@@ -38,7 +35,7 @@ export const Products = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => Add(_id, WishList, setWishList, dataBase)}
+                      onClick={() => Add(_id, WishList, setWishList, product)}
                     >
                       Add to Wishlist
                     </button>
