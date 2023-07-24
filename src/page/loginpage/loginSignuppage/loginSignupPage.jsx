@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { ProvideImage } from "../../function/function";
+import { ProvideImage } from "../../../function/function";
 const buttonContainer = {
   minWidth: "30%",
   padding: "10%",
@@ -13,23 +13,23 @@ const buttonContainer = {
 
 const LogSignPage = () => {
   const navigate = useNavigate();
-  const handleLogin = () => navigate("/logInPage");
-  const handleSignUP = () => navigate("/signUpPage");
+  const handleLogin = () => navigate("/login");
+  const handleSignUP = () => navigate("/SignupPage");
   return (
     <div style={buttonContainer}>
       <h1>Bookworm's Paradise!!!</h1>
       <p>Welcome to Bookworm's Paradise!!!</p>
       <button onClick={handleLogin}>
-        <h3>Login with google</h3>
+        <h3>Login</h3>
       </button>
       <button onClick={handleSignUP}>
-        <h3>SignUp with google</h3>
+        <h3>SignUp</h3>
       </button>
     </div>
   );
 };
 
-export const LogInSignUnPage = () => {
+export const LoginSignUpPage = () => {
   return (
     <div
       style={{

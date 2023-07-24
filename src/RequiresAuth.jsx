@@ -1,14 +1,13 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useAuthenticationContext } from "./context/AuthenticationContext";
+import { useAuthContext } from "./context/AuthContext";
 
 export const RequiresAuth = ({ children }) => {
-  const { token } = useAuthenticationContext();
+  const { token } = useAuthContext();
   const location = useLocation();
 
   return token ? (
-    // return Login ? (
     children
   ) : (
-    <Navigate to="/login" state={{ from: location.pathname }} />
+    <Navigate to="/LogInSignUnPage" state={{ from: location.pathname }} />
   );
 };

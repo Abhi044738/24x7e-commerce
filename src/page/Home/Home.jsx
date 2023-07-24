@@ -2,19 +2,13 @@ import "../Home.css";
 import a from "../../image/a.png";
 import { useProduct } from "../../context/productContext";
 import { Add, ProvideImage, displayMoveButton } from "../../function/function";
-import { useCartWishlistContext } from "../../context/context";
+import { useCartWishlistContext } from "../../context/CartWishlistContext";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const { categoriesData, product } = useProduct();
   const { Cart, setCart, WishList, setWishList } = useCartWishlistContext();
   const navigate = useNavigate();
-  console.log(
-    "jdfsssss;sfdddddd",
-    categoriesData.map((item) =>
-      product.filter(({ categoryName }) => categoryName === item.categoryName)
-    )
-  );
 
   return (
     <div className="container-home">

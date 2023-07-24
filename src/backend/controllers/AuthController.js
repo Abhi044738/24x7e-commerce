@@ -60,8 +60,11 @@ export const signupHandler = function (schema, request) {
 
 export const loginHandler = function (schema, request) {
   const { email, password } = JSON.parse(request.requestBody);
+  console.log("kk", { email, password });
   try {
+    console.log("user", schema);
     const foundUser = schema.users.findBy({ email });
+    console.log({ foundUser });
     if (!foundUser) {
       return new Response(
         404,

@@ -1,4 +1,4 @@
-import { useCartWishlistContext } from "../../context/context";
+import { useCartWishlistContext } from "../../context/CartWishlistContext";
 import { ProvideImage, toAdd, toRemove } from "../../function/function";
 import "../Home.css";
 export const Cart = () => {

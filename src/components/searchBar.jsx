@@ -7,18 +7,10 @@ export const SearchBar = () => {
   const handleSearch = (event) => {
     if (event.target.value !== undefined) {
       setSearchValue(event.target.value);
-      console.log(3, event.target.value);
-      console.log(
-        event.target.value !== undefined && event.target.value !== ""
-      );
       const searchList =
         event.target.value !== undefined && event.target.value !== ""
           ? product.reduce(
               (acc, curr) => {
-                console.log("xy");
-                console.log("b", event.target.value.toLowerCase());
-                console.log("a", curr);
-
                 const returnItem = curr.title
                   .toLowerCase()
                   .includes(event.target.value.toLowerCase())
@@ -31,9 +23,7 @@ export const SearchBar = () => {
               []
             )
           : [];
-      console.log(4, "earchList", searchList, SearchValue);
       setDisplaySearch(searchList);
-      console.log(event.target.value, searchList);
       setTimeout(() => setDisplaySearch([]), 3000);
     }
   };
@@ -50,12 +40,7 @@ export const SearchBar = () => {
           )
         : product;
     setProduct(newproduct);
-    console.log(2, newproduct);
   };
-  // const handler = (item) => {
-  //   setSearchValue(item);
-  //   onSearchhandler();
-  // };
   return (
     <div>
       <input type="search" onChange={handleSearch}></input>

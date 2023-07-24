@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useCartWishlistContext } from "../../context/context";
+import { useCartWishlistContext } from "../../context/CartWishlistContext";
 import { useProduct } from "../../context/productContext";
 import "../Home.css";
 import { Add, ProvideImage, displayMoveButton } from "../../function/function";
-import { FilterBar } from "../../components/filterBar";
+import { FilterBar } from "../../components/FilterBar";
 // import  hell from "../../image/.png";
 
 export const Products = () => {
@@ -29,18 +29,18 @@ export const Products = () => {
                   <button onClick={() => Add(_id, Cart, setCart, product)}>
                     Add to cart
                   </button>
-                  {displayMoveButton(_id, WishList) ? (
-                    <button onClick={() => navigate("/wishlist")}>
-                      To WishList
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => Add(_id, WishList, setWishList, product)}
-                    >
-                      Add to Wishlist
-                    </button>
-                  )}
                 </>
+              )}
+              {displayMoveButton(_id, WishList) ? (
+                <button onClick={() => navigate("/wishlist")}>
+                  To WishList
+                </button>
+              ) : (
+                <button
+                  onClick={() => Add(_id, WishList, setWishList, product)}
+                >
+                  Add to Wishlist
+                </button>
               )}
             </div>
           ) : (
