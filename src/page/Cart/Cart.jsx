@@ -1,36 +1,15 @@
-import { useCartWishlistContext } from "../../context/CartWishlistContext";
-import { ProvideImage, toAdd, toRemove } from "../../function/function";
-import "../Home.css";
+import { useCart } from "../../context/CartContext";
+import "./style.css";
+import { ProvideCard } from "./component/ProvideCard";
 export const Cart = () => {
-  const { Cart, setCart } = useCartWishlistContext();
+  const { Cart } = useCart();
 
   console.log(Cart);
   return (
     <div>
       <div className="cartpage-container">
         <div className="cards ">
-          {Cart.map(({ _id, author, title, price, categoryName, count }) => (
-            <div className="cart ">
-              <div>
-                <ProvideImage title={title} userheight={"fit-content"} />
-              </div>
-              <div>
-                <h3>{title}</h3>
-                <p>by {author}</p>
-                <p>
-                  Rs {price} categoryName {categoryName}
-                </p>
-                <br />
-                <p>
-                  <button onClick={() => toRemove(_id, Cart, setCart)}>
-                    -
-                  </button>
-                  count:{count}
-                  <button onClick={() => toAdd(_id, Cart, setCart)}>+</button>
-                </p>
-              </div>
-            </div>
-          ))}
+          <ProvideCard />
         </div>
         <div className="cards check-out">
           <div className="checkout">

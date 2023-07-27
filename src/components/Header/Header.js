@@ -1,18 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
-import { useCartWishlistContext } from "../context/CartWishlistContext";
-import { SearchBar } from "./SearchBar";
-import { useAuthContext } from "../context/AuthContext";
+
+import { useAuthContext } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
+import { SearchBar } from "../SearchBar/SearchBar";
+import { useWishlist } from "../../context/wishListContext";
 
 export const Navigation = () => {
-  const { Cart, WishList } = useCartWishlistContext();
-  const { Login, setLogin } = useAuthContext();
+  const navigate = useNavigate();
+  const { Cart } = useCart();
+  const { Login, setLogin, setToken } = useAuthContext();
+  const { wishlist } = useWishlist();
   const handleSingup = () => {
     console.log("caacacca", Login);
     if (Login) {
       setLogin(!Login);
+      setToken(false);
     } else {
-      window.location.href = "/LogInSignUnPage";
+      navigate("/login");
     }
   };
 
@@ -31,7 +36,7 @@ export const Navigation = () => {
           Cart item {Cart.length}
         </NavLink>
         <NavLink className="NavLink" to="/wishlist">
-          Wishlist item {WishList.length}
+          Wishlist item {wishlist.length}
         </NavLink>
         <button onClick={handleSingup}>{Login ? "logout" : "login"}</button>
         {/* <button onClick={handleSingup}>login/out</button> */}

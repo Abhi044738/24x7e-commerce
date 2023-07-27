@@ -1,33 +1,10 @@
 import { useState } from "react";
-import { useProduct } from "../context/productContext";
+import { useProduct } from "../../context/productContext";
+import { filterPrice, filtercategories } from "./component/function";
 export const FilterBar = () => {
   const { product, setProduct, categoriesData } = useProduct();
   const [categorySelected, setCategorySelected] = useState("All");
   const [priceSelected, setPriceSelected] = useState(9999999);
-  const filterPrice1 = () => {
-    const newproduct = product.reduce(
-      (acc, curr) =>
-        priceSelected >= curr.price
-          ? [...acc, { ...curr, display: true }]
-          : [...acc, { ...curr, display: false }],
-      []
-    );
-    return newproduct;
-  };
-
-  const filtercategories2 = () => {
-    const newproduct = product.reduce(
-      (acc, curr) =>
-        categorySelected === "All"
-          ? [...acc, { ...curr, display: true }]
-          : categorySelected.toLowerCase() !== curr.categoryName.toLowerCase()
-          ? [...acc, { ...curr, display: false }]
-          : [...acc, { ...curr, display: true }],
-      []
-    );
-
-    return newproduct;
-  };
 
   const handleCategorySelected = (event) => {
     setCategorySelected(event.target.value);
@@ -36,8 +13,8 @@ export const FilterBar = () => {
     setPriceSelected(event.target.value);
   };
   const handleFilter = () => {
-    const priceArray = filterPrice1();
-    const categoryArray = filtercategories2();
+    const priceArray = filterPrice(priceSelected, product);
+    const categoryArray = filtercategories(categorySelected, product);
     const newProductArray = product.reduce(
       (acc, curr) =>
         categoryArray.find(
@@ -53,7 +30,7 @@ export const FilterBar = () => {
     );
     setProduct(newProductArray);
   };
-  /////////////////////////////////////////
+
   return (
     <div className="items filters">
       <h3 className="filter-item">

@@ -8,6 +8,6 @@ export const RequiresAuth = ({ children }) => {
   return token ? (
     children
   ) : (
-    <Navigate to="/LogInSignUnPage" state={{ from: location.pathname }} />
+    <Navigate to="/login" state={{ from: location.pathname }} />
   );
 };

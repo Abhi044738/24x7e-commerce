@@ -1,4 +1,4 @@
-import "../Home.css";
+import "../style.css";
 export const ProductDetails = () => {
   return (
     <div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProduct } from "../context/productContext";
+import { useProduct } from "../../context/productContext";
 export const SearchBar = () => {
   const { product, setProduct } = useProduct();
   const [SearchValue, setSearchValue] = useState("");

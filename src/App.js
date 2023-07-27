@@ -6,12 +6,12 @@ import { Products } from "./page/Product/Product";
 import { Cart } from "./page/Cart/Cart";
 import { Wishlist } from "./page/Wishlist/Wishlist";
 import { ProductDetails } from "./page/ProductDetails/ProductDetails";
-import { Navigation } from "./components/Header";
-import { Footer } from "./components/Footer";
+
 import { LogInPage } from "./page/loginpage/LoginPage/LoginPage";
 import { SignUpPage } from "./page/loginpage/SignupPage/SignUpPage";
 import { RequiresAuth } from "./RequiresAuth";
-import { LoginSignUpPage } from "./page/loginpage/loginSignuppage/loginSignupPage";
+import { Navigation } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
@@ -36,7 +36,6 @@ function App() {
           }
         />
         <Route path="/productsDetails" element={<ProductDetails />} />
-        <Route path="/LogInSignUnPage" element={<LoginSignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/signUpPage" element={<SignUpPage />} />
         <Route path="/mockman" element={<Mockman />} />
