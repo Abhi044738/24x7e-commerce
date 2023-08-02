@@ -39,11 +39,11 @@ const toRemove = (id, Cart, setCart) => {
 };
 
 ////product cart image provider
-const ProvideImage = ({ title, userheight }) => {
-  console.log(title, userheight);
-  const imageTitle = title.replace(/\s/g, "-");
-  const myImage = require(`../image/${imageTitle}.png`);
-  console.log(imageTitle, `../image/${imageTitle}.png`);
-  return <img src={myImage} alt="" style={{ height: userheight }} />;
-};
-export { Add, displayMoveButton, toAdd, toRemove, ProvideImage };
+// const ProvideImage = ({ title, userheight }) => {
+//   console.log(title, userheight);
+//   const imageTitle = title.replace(/\s/g, "-");
+//   const myImage = require(`../image/${imageTitle}.png`);
+//   console.log(imageTitle, `../image/${imageTitle}.png`);
+//   return <img src={myImage} alt="" style={{ height: userheight }} />;
+// };
+export { Add, displayMoveButton, toAdd, toRemove };

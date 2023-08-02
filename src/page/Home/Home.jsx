@@ -1,5 +1,5 @@
 import "./style.css";
-import a from "../../image/a.png";
+import a from "../../assets/image/a.png";
 
 import { DisplayOfferProduct } from "./component/DisplayOfferProduct.jsx";
 

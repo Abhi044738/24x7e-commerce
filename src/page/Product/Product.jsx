@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/productContext";
 import "../style.css";
-import { Add, ProvideImage, displayMoveButton } from "../../function/function";
+import { Add, displayMoveButton } from "../../function/function";
 
 import { useCart } from "../../context/CartContext";
 import { FilterBar } from "../../components/FilterBar/FilterBar";
@@ -25,6 +25,23 @@ export const Products = () => {
         { headers: { authorization: token } }
       );
       console.log(response);
+      Add(_id, Cart, setCart, product);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addToWishlistHandler = async (_id) => {
+    const item = product.find((item) => item._id === _id);
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        {
+          product: item,
+        },
+        { headers: { authorization: token } }
+      );
+      console.log(response);
+      Add(_id, wishlist, setWishlist, product);
     } catch (error) {
       console.log(error);
     }
@@ -33,10 +50,11 @@ export const Products = () => {
     <div className="layout">
       <FilterBar />
       <div className="items product-content ">
-        {(product ?? []).map(({ title, author, price, _id, display }) =>
+        {(product ?? []).map(({ title, author, price, _id, display, image }) =>
           display === true ? (
             <div className="product-item">
-              <ProvideImage title={title} userheight={"6.5rem"} />
+              <img src={image} alt={image} className="product-image" />
+              {/* <ProvideImage title={title} userheight={"6.5rem"} /> */}
               <h3>{title}</h3>
               <p>{author}</p>
               <p>Rs. {price}</p>
@@ -54,9 +72,7 @@ export const Products = () => {
                   To WishList
                 </button>
               ) : (
-                <button
-                  onClick={() => Add(_id, wishlist, setWishlist, product)}
-                >
+                <button onClick={() => addToWishlistHandler(_id)}>
                   Add to Wishlist
                 </button>
               )}

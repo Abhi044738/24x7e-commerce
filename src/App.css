@@ -50,3 +50,8 @@
   font-size: 1.2rem;
   margin: 1rem;
 }
+
+/* ------new */
+.product-image {
+  height: 6.5rem;
+}

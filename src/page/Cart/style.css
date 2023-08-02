@@ -115,3 +115,6 @@ section {
   border: solid;
   margin: auto;
 }
+.cart-product-image {
+  height: 12rem;
+}

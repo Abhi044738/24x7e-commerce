@@ -1,3 +1,5 @@
+// solve remove from cart in decreamen
+
 import { useCart } from "../../context/CartContext";
 import "./style.css";
 import { ProvideCard } from "./component/ProvideCard";

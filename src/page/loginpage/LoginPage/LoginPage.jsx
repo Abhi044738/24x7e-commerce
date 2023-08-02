@@ -9,7 +9,9 @@ export const LogInPage = () => {
         className="login-container"
         style={{ display: "flex", boxShadow: "0 5px 25px 0 rgba(0,0,0,.25)" }}
       >
-        <ProvideImage title={"imageSignUpPage"} userheight={"500px"} />
+        <img src="/" alt="image" />
+
+        {/* <ProvideImage title={"imageSignUpPage"} userheight={"500px"} /> */}
         <DisplayLoginPage />
       </div>
     </div>

@@ -1,4 +1,4 @@
-/* ---home */
+/* ---home  main*/
 .home-page-item {
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@
   height: 500px;
   display: flex;
   justify-content: center;
-  background-image: url("../image/image.png");
+  /* background-image: url("../image/image.png"); */
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -115,3 +115,7 @@ section {
   border: solid;
   margin: auto;
 }
+/* ------new
+.product-image {
+  height: fit-content;
+} */

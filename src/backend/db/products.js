@@ -1,5 +1,21 @@
 import { v4 as uuidv4 } from "uuid";
 
+import {
+  YouCanWIN,
+  TheHauntingofHillHouse,
+  TheAlchemist,
+  ToKillAMockingbird,
+  b1984,
+  PridePrejudice,
+  TheGreatGatsby,
+  HarryPotter,
+  TheCatcherInTheRye,
+  MobyDick,
+  TheLordOfTheRings,
+  TheChroniclesOfNarnia,
+  ThePictureOfDorianGray,
+} from "../../assets/image/index";
+
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -8,6 +24,8 @@ import { v4 as uuidv4 } from "uuid";
 export const products = [
   {
     _id: uuidv4(),
+    count: 0,
+    image: YouCanWIN,
     display: true,
     title: "You Can WIN",
     author: "Shiv Khera",
@@ -17,6 +35,8 @@ export const products = [
 
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheHauntingofHillHouse,
     display: true,
     title: "The Haunting of Hill House",
     author: "Shirley Jackson",
@@ -25,6 +45,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheAlchemist,
     display: true,
     title: "The Alchemist",
     author: "Paulo Coelho",
@@ -34,6 +56,8 @@ export const products = [
 
   {
     _id: uuidv4(),
+    count: 0,
+    image: ToKillAMockingbird,
     display: true,
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
@@ -42,6 +66,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: b1984,
     display: true,
     title: "1984",
     author: "George Orwell",
@@ -50,6 +76,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: PridePrejudice,
     display: true,
     title: "Pride and Prejudice",
     author: "Jane Austen",
@@ -58,6 +86,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheGreatGatsby,
     display: true,
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
@@ -66,6 +96,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: HarryPotter,
     display: true,
     title: "Harry Potter and the Sorcerer's Stone",
     author: "J.K. Rowling",
@@ -74,6 +106,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheCatcherInTheRye,
     display: true,
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
@@ -82,6 +116,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: MobyDick,
     display: true,
     title: "Moby-Dick",
     author: "Herman Melville",
@@ -90,6 +126,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheLordOfTheRings,
     display: true,
     title: "The Lord of the Rings",
     author: "J.R.R. Tolkien",
@@ -98,6 +136,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: TheChroniclesOfNarnia,
     display: true,
     title: "The Chronicles of Narnia",
     author: "C.S. Lewis",
@@ -106,6 +146,8 @@ export const products = [
   },
   {
     _id: uuidv4(),
+    count: 0,
+    image: ThePictureOfDorianGray,
     display: true,
     title: "The Picture of Dorian Gray",
     author: "Oscar Wilde",
