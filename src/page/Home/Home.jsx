@@ -1,7 +1,7 @@
 import "./style.css";
-import a from "../../assets/image/a.png";
 
 import { DisplayOfferProduct } from "./component/DisplayOfferProduct.jsx";
+import { a } from "../../assets/image/index";
 
 export const Home = () => {
   return (

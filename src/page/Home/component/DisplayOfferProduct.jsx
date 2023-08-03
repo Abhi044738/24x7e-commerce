@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/CartContext";
 import { useProduct } from "../../../context/productContext";
-import { Add, displayMoveButton } from "../../../function/function";
+import { displayMoveButton } from "../../../function/function";
 import { useWishlist } from "../../../context/wishListContext";
-import axios from "axios";
 import { useAuthContext } from "../../../context/AuthContext";
+import {
+  addToCartHandler,
+  addToWishlistHandler,
+} from "../../../utils/productHandler/index";
 
 export const DisplayOfferProduct = () => {
   const { categoriesData, product } = useProduct();
@@ -12,36 +15,7 @@ export const DisplayOfferProduct = () => {
   const navigate = useNavigate();
   const { wishlist, setWishlist } = useWishlist();
   const { token } = useAuthContext();
-  const addToCartHandler = async (_id) => {
-    const item = product.find((item) => item._id === _id);
-    try {
-      const response = await axios.post(
-        "/api/user/cart",
-        { product: item },
-        { headers: { authorization: token } }
-      );
-      console.log(response);
-      Add(_id, Cart, setCart, product);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const addToWishlistHandler = async (_id) => {
-    const item = product.find((item) => item._id === _id);
-    try {
-      const response = await axios.post(
-        "/api/user/wishlist",
-        {
-          product: item,
-        },
-        { headers: { authorization: token } }
-      );
-      console.log(response);
-      Add(_id, wishlist, setWishlist, product);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
   return (
     <div>
       {categoriesData.map((item) => (
@@ -57,8 +31,6 @@ export const DisplayOfferProduct = () => {
               display === true ? (
                 <div className="product-item ">
                   <img src={image} alt={image} className="product-image" />
-
-                  {/* <ProvideImage title={title} userheight={"6.5rem"} /> */}
                   <h3>{title}</h3>
                   <p>{author}</p>
                   <p>Rs. {price}</p>
@@ -66,7 +38,11 @@ export const DisplayOfferProduct = () => {
                     <button onClick={() => navigate("/cart")}>To cart</button>
                   ) : (
                     <>
-                      <button onClick={() => addToCartHandler(_id)}>
+                      <button
+                        onClick={() =>
+                          addToCartHandler(_id, token, Cart, setCart, product)
+                        }
+                      >
                         Add to cart
                       </button>
                     </>
@@ -76,7 +52,17 @@ export const DisplayOfferProduct = () => {
                       To WishList
                     </button>
                   ) : (
-                    <button onClick={() => addToWishlistHandler(_id)}>
+                    <button
+                      onClick={() =>
+                        addToWishlistHandler(
+                          _id,
+                          token,
+                          wishlist,
+                          setWishlist,
+                          product
+                        )
+                      }
+                    >
                       Add to Wishlist
                     </button>
                   )}

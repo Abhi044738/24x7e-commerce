@@ -11,6 +11,8 @@ import MobyDick from "./Moby-Dick.png";
 import TheLordOfTheRings from "./The-Lord-of-the-Rings.png";
 import TheChroniclesOfNarnia from "./The-Chronicles-of-Narnia.png";
 import ThePictureOfDorianGray from "./The-Picture-of-Dorian-Gray.png";
+import a from "./a.png";
+import loginSignUp from "./1imageSignUpPage.png";
 
 export {
   YouCanWIN,
@@ -26,4 +28,6 @@ export {
   TheLordOfTheRings,
   TheChroniclesOfNarnia,
   ThePictureOfDorianGray,
+  a,
+  loginSignUp,
 };

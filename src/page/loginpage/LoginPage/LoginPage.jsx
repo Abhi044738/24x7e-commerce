@@ -1,6 +1,6 @@
 import "./style.css";
-import { ProvideImage } from "../../../function/function";
 import { DisplayLoginPage } from "./component/DisplayLoginPage";
+import { loginSignUp } from "../../../assets/image/index";
 
 export const LogInPage = () => {
   return (
@@ -9,9 +9,8 @@ export const LogInPage = () => {
         className="login-container"
         style={{ display: "flex", boxShadow: "0 5px 25px 0 rgba(0,0,0,.25)" }}
       >
-        <img src="/" alt="image" />
+        <img src={loginSignUp} alt="image" />
 
-        {/* <ProvideImage title={"imageSignUpPage"} userheight={"500px"} /> */}
         <DisplayLoginPage />
       </div>
     </div>
