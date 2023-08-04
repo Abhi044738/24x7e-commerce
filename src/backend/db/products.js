@@ -24,7 +24,7 @@ import {
 export const products = [
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: YouCanWIN,
     display: true,
     title: "You Can WIN",
@@ -35,7 +35,7 @@ export const products = [
 
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheHauntingofHillHouse,
     display: true,
     title: "The Haunting of Hill House",
@@ -45,7 +45,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheAlchemist,
     display: true,
     title: "The Alchemist",
@@ -56,7 +56,7 @@ export const products = [
 
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: ToKillAMockingbird,
     display: true,
     title: "To Kill a Mockingbird",
@@ -66,7 +66,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: b1984,
     display: true,
     title: "1984",
@@ -76,7 +76,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: PridePrejudice,
     display: true,
     title: "Pride and Prejudice",
@@ -86,7 +86,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheGreatGatsby,
     display: true,
     title: "The Great Gatsby",
@@ -96,7 +96,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: HarryPotter,
     display: true,
     title: "Harry Potter and the Sorcerer's Stone",
@@ -106,7 +106,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheCatcherInTheRye,
     display: true,
     title: "The Catcher in the Rye",
@@ -116,7 +116,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: MobyDick,
     display: true,
     title: "Moby-Dick",
@@ -126,7 +126,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheLordOfTheRings,
     display: true,
     title: "The Lord of the Rings",
@@ -136,7 +136,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: TheChroniclesOfNarnia,
     display: true,
     title: "The Chronicles of Narnia",
@@ -146,7 +146,7 @@ export const products = [
   },
   {
     _id: uuidv4(),
-    count: 0,
+    count: 1,
     image: ThePictureOfDorianGray,
     display: true,
     title: "The Picture of Dorian Gray",

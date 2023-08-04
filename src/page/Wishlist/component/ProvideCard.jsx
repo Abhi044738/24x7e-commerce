@@ -2,17 +2,15 @@ import { useCart } from "../../../context/CartContext";
 import { useProduct } from "../../../context/productContext";
 import { useWishlist } from "../../../context/wishListContext";
 import { useAuthContext } from "../../../context/AuthContext";
-import {
-  addToCartHandler,
-  handleDelete,
-} from "../../../utils/WishlistHandler/index";
-
+import { handleDelete } from "../../../utils/WishlistHandler/index";
+import { addToCartHandler } from "../../../utils/cartHandler/index";
 export const ProvideCard = () => {
   const { product } = useProduct();
-  const { Cart, setCart } = useCart();
+  const { cartState, setCart, cartDispatch } = useCart();
   const { token } = useAuthContext();
-  const { wishlist, setWishlist } = useWishlist();
-
+  const { wishlistState, setWishlist, wishlistDispatch } = useWishlist();
+  const wishlist = wishlistState.wishlist;
+  const Cart = cartState.cart;
   return wishlist.map(({ title, author, price, _id, image }) => (
     <div className="cart">
       <div>
@@ -31,14 +29,20 @@ export const ProvideCard = () => {
         <p>{price}</p>
         {!Cart.find((item) => item._id === _id) ? (
           <button
-            onClick={() => addToCartHandler(_id, token, product, Cart, setCart)}
+            onClick={() =>
+              addToCartHandler(_id, token, Cart, setCart, product, cartDispatch)
+            }
           >
             Add to cart
           </button>
         ) : (
           <></>
         )}
-        <button onClick={() => handleDelete(_id, token, wishlist, setWishlist)}>
+        <button
+          onClick={() =>
+            handleDelete(_id, token, wishlist, setWishlist, wishlistDispatch)
+          }
+        >
           Remove From Wishlist
         </button>
       </div>

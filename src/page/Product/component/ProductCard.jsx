@@ -1,21 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../../context/productContext";
 import { displayMoveButton } from "../../../function/function";
-import {
-  addToCartHandler,
-  addToWishlistHandler,
-} from "../../../utils/productHandler/index";
+import { addToCartHandler } from "../../../utils/cartHandler/index";
 import { useCart } from "../../../context/CartContext";
 import { useWishlist } from "../../../context/wishListContext";
 import { useAuthContext } from "../../../context/AuthContext";
+import { addToWishlistHandler } from "../../../utils/WishlistHandler/index";
 
 export const ProductCard = () => {
   const { product } = useProduct();
   const navigate = useNavigate();
-  const { Cart, setCart } = useCart();
-  const { wishlist, setWishlist } = useWishlist();
+  const { cartState, setCart, cartDispatch } = useCart();
+  const { wishlistState, setWishlist, wishlistDispatch } = useWishlist();
   const { token } = useAuthContext();
-
+  const Cart = cartState.cart;
+  const wishlist = wishlistState.wishlist;
   return (product ?? []).map(({ title, author, price, _id, display, image }) =>
     display === true ? (
       <div className="product-item">
@@ -29,7 +28,14 @@ export const ProductCard = () => {
           <>
             <button
               onClick={() =>
-                addToCartHandler(_id, token, Cart, setCart, product)
+                addToCartHandler(
+                  _id,
+                  token,
+                  Cart,
+                  setCart,
+                  product,
+                  cartDispatch
+                )
               }
             >
               Add to cart
@@ -41,7 +47,14 @@ export const ProductCard = () => {
         ) : (
           <button
             onClick={() =>
-              addToWishlistHandler(_id, token, wishlist, setWishlist, product)
+              addToWishlistHandler(
+                _id,
+                token,
+                wishlist,
+                setWishlist,
+                product,
+                wishlistDispatch
+              )
             }
           >
             Add to Wishlist

@@ -4,16 +4,14 @@ import { useProduct } from "../../../context/productContext";
 import { displayMoveButton } from "../../../function/function";
 import { useWishlist } from "../../../context/wishListContext";
 import { useAuthContext } from "../../../context/AuthContext";
-import {
-  addToCartHandler,
-  addToWishlistHandler,
-} from "../../../utils/productHandler/index";
+import { addToCartHandler } from "../../../utils/cartHandler/index";
+import { addToWishlistHandler } from "../../../utils/WishlistHandler/index";
 
 export const DisplayOfferProduct = () => {
   const { categoriesData, product } = useProduct();
-  const { Cart, setCart } = useCart();
+  const { Cart, setCart, cartDispatch } = useCart();
   const navigate = useNavigate();
-  const { wishlist, setWishlist } = useWishlist();
+  const { wishlist, setWishlist, wishlistDispatch } = useWishlist();
   const { token } = useAuthContext();
 
   return (
@@ -40,7 +38,14 @@ export const DisplayOfferProduct = () => {
                     <>
                       <button
                         onClick={() =>
-                          addToCartHandler(_id, token, Cart, setCart, product)
+                          addToCartHandler(
+                            _id,
+                            token,
+                            Cart,
+                            setCart,
+                            product,
+                            cartDispatch
+                          )
                         }
                       >
                         Add to cart
@@ -59,7 +64,8 @@ export const DisplayOfferProduct = () => {
                           token,
                           wishlist,
                           setWishlist,
-                          product
+                          product,
+                          wishlistDispatch
                         )
                       }
                     >

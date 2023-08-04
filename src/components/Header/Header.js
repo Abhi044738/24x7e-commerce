@@ -8,9 +8,11 @@ import { useWishlist } from "../../context/wishListContext";
 
 export const Navigation = () => {
   const navigate = useNavigate();
-  const { Cart } = useCart();
+  const { cartState } = useCart();
   const { Login, setLogin, setToken } = useAuthContext();
-  const { wishlist } = useWishlist();
+  const { wishlistState } = useWishlist();
+  const Cart = cartState.cart;
+  const wishlist = wishlistState.wishlist;
   const handleSingup = () => {
     console.log("caacacca", Login);
     if (Login) {

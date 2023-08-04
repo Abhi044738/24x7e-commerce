@@ -6,7 +6,8 @@ export const addToWishlistHandler = async (
   token,
   wishlist,
   setWishlist,
-  product
+  product,
+  wishlistDispatch
 ) => {
   const item = product.find((item) => item._id === _id);
   try {
@@ -18,7 +19,11 @@ export const addToWishlistHandler = async (
       { headers: { authorization: token } }
     );
     console.log(response);
-    Add(_id, wishlist, setWishlist, product);
+    wishlistDispatch({
+      type: "updateWishlist",
+      payload: response.data.wishlist,
+    });
+    // Add(_id, wishlist, setWishlist, product);
   } catch (error) {
     console.log(error);
   }

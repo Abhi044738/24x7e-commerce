@@ -2,8 +2,8 @@ import { useCart } from "../../context/CartContext";
 import "./style.css";
 import { ProvideCard } from "./component/ProvideCard";
 export const Cart = () => {
-  const { Cart } = useCart();
-
+  const { cartState } = useCart();
+  const Cart = cartState.cart;
   console.log(Cart);
   return (
     <div>
