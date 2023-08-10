@@ -1,11 +1,7 @@
 import axios from "axios";
-import { Add } from "../../function/function";
-
 export const addToWishlistHandler = async (
   _id,
   token,
-  wishlist,
-  setWishlist,
   product,
   wishlistDispatch
 ) => {
@@ -23,7 +19,6 @@ export const addToWishlistHandler = async (
       type: "updateWishlist",
       payload: response.data.wishlist,
     });
-    // Add(_id, wishlist, setWishlist, product);
   } catch (error) {
     console.log(error);
   }

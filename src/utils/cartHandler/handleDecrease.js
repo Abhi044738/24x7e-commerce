@@ -1,13 +1,5 @@
 import axios from "axios";
-import { toRemove } from "../../function/function";
-
-export const handleDecrease = async (
-  _id,
-  token,
-  Cart,
-  setCart,
-  cartDispatch
-) => {
+export const handleDecrease = async (_id, token, cartDispatch) => {
   try {
     const response = await axios.post(
       `/api/user/cart/${_id}`,
@@ -16,7 +8,6 @@ export const handleDecrease = async (
     );
     console.log(response);
     cartDispatch({ type: "updateCart", payload: response.data.cart });
-    // toRemove(_id, Cart, setCart);
   } catch (error) {
     console.log(error);
   }

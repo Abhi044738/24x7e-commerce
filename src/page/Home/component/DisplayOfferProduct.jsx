@@ -9,10 +9,12 @@ import { addToWishlistHandler } from "../../../utils/WishlistHandler/index";
 
 export const DisplayOfferProduct = () => {
   const { categoriesData, product } = useProduct();
-  const { Cart, setCart, cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const navigate = useNavigate();
-  const { wishlist, setWishlist, wishlistDispatch } = useWishlist();
+  const { wishlistState, wishlistDispatch } = useWishlist();
   const { token } = useAuthContext();
+  const Cart = cartState.cart;
+  const wishlist = wishlistState.wishlist;
 
   return (
     <div>
@@ -38,14 +40,7 @@ export const DisplayOfferProduct = () => {
                     <>
                       <button
                         onClick={() =>
-                          addToCartHandler(
-                            _id,
-                            token,
-                            Cart,
-                            setCart,
-                            product,
-                            cartDispatch
-                          )
+                          addToCartHandler(_id, token, product, cartDispatch)
                         }
                       >
                         Add to cart
@@ -62,8 +57,6 @@ export const DisplayOfferProduct = () => {
                         addToWishlistHandler(
                           _id,
                           token,
-                          wishlist,
-                          setWishlist,
                           product,
                           wishlistDispatch
                         )

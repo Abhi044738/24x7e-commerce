@@ -1,6 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
-
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {

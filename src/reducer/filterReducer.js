@@ -4,10 +4,10 @@ export const filterReducer = (state, action) => {
       console.log("here filter", action.payload);
       return { ...state, categorySelected: "All", priceSelected: 9999999 };
     case "ByCategories":
-      const newCategory = action.payload.categories;
+      const newCategory = action.payload;
       return { ...state, categorySelected: newCategory };
     case "ByPrice":
-      const newProduct = action.payload.categories;
+      const newProduct = action.payload;
       return { ...state, priceSelected: newProduct };
     default:
       return state;

@@ -8,7 +8,7 @@ import {
 } from "../../../utils/cartHandler/index";
 export const ProvideCard = () => {
   const { token } = useAuthContext();
-  const { cartState, setCart, cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const Cart = cartState.cart;
 
   return Cart.map(
@@ -31,28 +31,16 @@ export const ProvideCard = () => {
           <br />
           <p>
             {count !== 1 ? (
-              <button
-                onClick={() =>
-                  handleDecrease(_id, token, Cart, setCart, cartDispatch)
-                }
-              >
+              <button onClick={() => handleDecrease(_id, token, cartDispatch)}>
                 -
               </button>
             ) : (
-              <button
-                onClick={() =>
-                  handleRemove(_id, token, Cart, setCart, cartDispatch)
-                }
-              >
+              <button onClick={() => handleRemove(_id, token, cartDispatch)}>
                 X
               </button>
             )}
             count:{count}
-            <button
-              onClick={() =>
-                handleIncrese(_id, token, Cart, setCart, cartDispatch)
-              }
-            >
+            <button onClick={() => handleIncrese(_id, token, cartDispatch)}>
               +
             </button>
           </p>
