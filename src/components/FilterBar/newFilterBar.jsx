@@ -1,36 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useProduct } from "../../context/productContext";
 import { filterPrice, filtercategories } from "./component/function";
+import { useFilter } from "../../context/FlterContext";
 export const FilterBar = () => {
-  const { product, setProduct, categoriesData } = useProduct();
-  const [categorySelected, setCategorySelected] = useState("All");
-  const [priceSelected, setPriceSelected] = useState(9999999);
-  const handleFilter = () => {
-    const priceArray = filterPrice(priceSelected, product);
-    const categoryArray = filtercategories(categorySelected, product);
-    const newProductArray = product.reduce(
-      (acc, curr) =>
-        categoryArray.find(
-          (item) =>
-            item.categoryName === curr.categoryName && item.display === true
-        ) &&
-        priceArray.find(
-          (item2) => item2.price === curr.price && item2.display === true
-        )
-          ? [...acc, { ...curr, display: true }]
-          : [...acc, { ...curr, display: false }],
-      []
-    );
-    setProduct(newProductArray);
-  };
+  const { categoriesData } = useProduct();
+  const { filterDispatch } = useFilter();
 
   const handleCategorySelected = (event) => {
-    setCategorySelected(event.target.value);
+    filterDispatch({ type: "ByCategories", payload: event.target.value });
   };
   const handlePriceSelected = (event) => {
-    setPriceSelected(event.target.value);
+    filterDispatch({ type: "ByPrice", payload: event.target.value });
   };
-  useEffect(() => handleFilter(), [categorySelected, priceSelected]);
   return (
     <div className="items filters">
       <h3 className="filter-item">
@@ -103,9 +84,9 @@ export const FilterBar = () => {
             More then 4000
           </label>
           <br />
-          {/* <button onClick={handleFilter}>
+          <button onClick={handleFilter}>
             <h3>Filter</h3>
-          </button> */}
+          </button>
         </div>
       </div>
     </div>
