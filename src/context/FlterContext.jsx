@@ -5,6 +5,7 @@ const FilterContext = createContext();
 
 const FilterProvider = ({ children }) => {
   const [filterState, filterDispatch] = useReducer(filterReducer, {
+    selectedName: "",
     categorySelected: "All",
     priceSelected: 9999999,
   });

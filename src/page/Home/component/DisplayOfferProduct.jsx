@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/CartContext";
 import { useProduct } from "../../../context/productContext";
-import { displayMoveButton } from "../../../function/function";
+import { displayMoveButton } from "./function/displayMoveButton";
 import { useWishlist } from "../../../context/wishListContext";
 import { useAuthContext } from "../../../context/AuthContext";
 import { addToCartHandler } from "../../../utils/cartHandler/index";

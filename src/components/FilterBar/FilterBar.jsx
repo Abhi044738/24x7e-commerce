@@ -84,9 +84,6 @@ export const FilterBar = () => {
             More then 4000
           </label>
           <br />
-          {/* <button onClick={handleFilter}>
-            <h3>Filter</h3>
-          </button> */}
         </div>
       </div>
     </div>

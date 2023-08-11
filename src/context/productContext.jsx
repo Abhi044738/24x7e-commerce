@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getProduct } from "../utils/productHandler/getProduct";
-import { getCategories } from "../utils/categariesHandler/getCategories";
+import { getProduct } from "../utils/productHandler/index";
+import { getCategories } from "../utils/categariesHandler/index";
 
 const ProductContext = createContext(null);
 

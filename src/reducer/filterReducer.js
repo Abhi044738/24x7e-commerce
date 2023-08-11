@@ -9,6 +9,10 @@ export const filterReducer = (state, action) => {
     case "ByPrice":
       const newProduct = action.payload;
       return { ...state, priceSelected: newProduct };
+    case "ByName":
+      const newSelectedName = action.payload;
+      console.log("jkjkj", newSelectedName);
+      return { ...state, selectedName: newSelectedName };
     default:
       return state;
   }

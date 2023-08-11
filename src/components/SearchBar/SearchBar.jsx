@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useProduct } from "../../context/productContext";
+import { useFilter } from "../../context/FlterContext";
 export const SearchBar = () => {
-  const { product, setProduct } = useProduct();
+  const { product } = useProduct();
   const [SearchValue, setSearchValue] = useState("");
   const [displaySearch, setDisplaySearch] = useState([]);
+  const { filterDispatch } = useFilter();
   const handleSearch = (event) => {
     if (event.target.value !== undefined) {
       setSearchValue(event.target.value);
@@ -28,18 +30,8 @@ export const SearchBar = () => {
     }
   };
   const onSearchhandler = (item) => {
-    console.log(1, item);
-    const newproduct =
-      item !== ""
-        ? product.reduce(
-            (acc, curr) =>
-              curr.title.toLowerCase() !== item.toLowerCase()
-                ? [...acc, { ...curr, display: false }]
-                : [...acc, { ...curr, dispaly: true }],
-            []
-          )
-        : product;
-    setProduct(newproduct);
+    console.log(1, "          ", item);
+    filterDispatch({ type: "ByName", payload: item });
   };
   return (
     <div>

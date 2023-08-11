@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../../context/productContext";
-import { displayMoveButton } from "../../../function/function";
+import { displayMoveButton } from "./function/displayMoveButton";
 import { addToCartHandler } from "../../../utils/cartHandler/index";
 import { useCart } from "../../../context/CartContext";
 import { useWishlist } from "../../../context/wishListContext";
@@ -24,7 +24,9 @@ export const ProductCard = () => {
       (item) =>
         (filterState.categorySelected === "All" ||
           filterState.categorySelected === item.categoryName) &&
-        filterState.priceSelected >= item.price
+        filterState.priceSelected >= item.price &&
+        (filterState.selectedName === "" ||
+          item.title.toLowerCase() === filterState.selectedName.toLowerCase())
     );
   console.log("herer ", products());
   return (products() ?? []).map(
